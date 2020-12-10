@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Concrete Poetry Drawing Tool</title>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+
+  <!-- For drawing -->
+  <script type="text/javascript" src="p5.min.js">  </script>
+
+  <!-- For Lerp function -->
+  <script type="text/javascript" src="MathHelper.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, minimum-scale=0.5">
+  <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+<body>
+  <menu>
+    <div class="options">
+      <p>Font Size: &nbsp;</p> <p id="fz"> 80 </p>
+      <input type="range" min="10" max="120" value="80" id="slider">
+
+      <p>&nbsp;&nbsp;&nbsp;Text Color: &nbsp;</p>
+
+      <div class="color black" style="box-shadow: 0px 0px 3px rgb(0,0,100);"></div>
+      <div class="color red"></div>
+      <div class="color green"></div>
+      <div class="color yellow"></div>
+      <div class="color blue"></div>
+      <div class="color pink"></div>
+      <div class="color white"></div>
+
+      <div class="" style="display: flex; align-items: center;">
+
+      <p>&nbsp;&nbsp;&nbsp;Canvas Color: &nbsp;</p>
+          <div class="bgcolor white" style="box-shadow: 0px 0px 3px rgb(0,0,100);"></div>
+      <div class="bgcolor black"></div>
+
+
+      </div>
+
+      <div class="">
+
+      <p>&nbsp;&nbsp;&nbsp;Font: &nbsp; </p>
+      <select id="fontSelector" name="font">
+        <option value="sans">Sans-Serif</option>
+        <option value="serif">Serif</option>
+      </select>
+
+    </div>
+    </div>
+
+<div class="bottom">
+
+    <button type="button" name="button" onclick="clicked()"> Animate</button>
+    <div class="">
+          <input type="text" name="" value="" id="inputField" placeholder="Write Something">
+          <button type="button" name="button" onclick="addLine()">Add Line</button>
+          <button type="button" name="button" onclick="addTitle()">Add Title</button>
+          <button type="button" name="button" onclick="addName()">Add Name</button>
+            <button type="button" name="button" onclick="clearCanvas()">Clear</button>
+    </div>
+    <div class="">
+      <p>Line Count: </p> <p id="cnt"> 5 </p>
+      <input type="range" min="1" max="20" value="5" id="lineSlider">
+      <button type="button" name="button" onclick="newPoem()"> Find Poem</button>
+
+    </div>
+
+    <button type="button" name="button" onclick="downloadImg()"> Upload Image</button>
+
+    </div>
+  </menu>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" id="img01" onclick="closeModal()">
+
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
+
+  </div>
+
+  <div class="container">
+    <div class="text noselect">
+      <h3 id="title"></h3>
+      <h3 id="author">Concrete Poetry Drawing Tool</h3>
+      <p id="poem" >
+        Get started: <br>
+         <br>
+        a) Type in your own lines in the field above – click Add Line to add a line.  <br>
+      Type in the title of your poem/text and your name and click the Add Title and Add Name buttons respectively.
+    <br><br>
+    b) Find a random poem by chosing a line count (number of verses in the poem) and click the "Find Poem" button.
+    <br> <br>
+    Draw in the canvas using your mouse/finger!
+    If you are happy with your composition you can click the "Upload Image" button to upload it to the image gallery below.
+
+   </p>
+    </div>
+
+
+  <div id="canvasContainer">
+  </div>
+
+    </div>
+  <h3 style="text-align: center; margin-bottom: 40px;">Gallery</h3>
+  <div id="gallery">
+  </div>
+
+  <footer id="footer"> &darr; Gallery &darr;</footer>
+
+  <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
